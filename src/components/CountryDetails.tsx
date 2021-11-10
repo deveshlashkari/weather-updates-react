@@ -11,11 +11,9 @@ import {
   Paper,
 } from "@material-ui/core";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function CountryDetails() {
-  const navigate = useNavigate();
-
   const [countryData, setCountryData] = useState(null);
 
   // Extract countryName from URL
