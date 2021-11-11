@@ -9,16 +9,13 @@ import {
   TableCell,
   TableRow,
   Paper,
-  Button,
 } from "@material-ui/core";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { WEATHER_STACK_API_URL } from "../Constants/Constants";
 
 export default function CapitalDetails() {
-  const navigate = useNavigate();
-
   const [capitalData, setCapitalData] = useState({
     tempreture: "",
     weatherIcons: "",
