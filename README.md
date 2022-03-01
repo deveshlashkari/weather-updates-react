@@ -67,13 +67,24 @@ nvm exec 12.18.3 server.js
 First create a react app using create-react-app with Typescript support
 
 ```bash
-npx create-react-app --template typescript
+npx create-react-app projectname --template typescript
 ```
 
 ## Packages to Install -
 
 ```bash
-yarn add @material-ui/core @types/@material-ui axios @babel/preset-env @babel/preset-react @babel/plugin-syntax-jsx
+yarn add 
+@babel/preset-env 
+@babel/preset-react 
+@babel/preset-typescript 
+@babel/plugin-syntax-jsx
+@material-ui/core 
+@types/@material-ui
+@types/react-router-dom  
+axios 
+core-js 
+react-router-dom 
+regenerator-runtime
 ```
 
 Create a babel configuration file in the root -
@@ -81,27 +92,29 @@ Name it as - babel.config.js
 and add the following lines -
 
 ```bash
-'use strict'
+"use strict";
 /**
-babel.config.js with useful plugins.
+babel.config.js with useful plugins. 
 */
-module.exports = function(api) {
+module.exports = function (api) {
   api.cache(true);
   api.assertVersion("^7.4.5");
-​
+
   const presets = [
     ["@babel/preset-env"],
-    ["@babel/preset-react"]
+    ["@babel/preset-react", {"runtime": "automatic"}],
+    ["@babel/preset-typescript"]
   ];
   const plugins = [
-    ['@babel/plugin-syntax-jsx']
+    ["@babel/plugin-syntax-jsx"],
+    ["@babel/plugin-proposal-class-properties"],
   ];
-​
+
   return {
     presets,
-    plugins
-  }
-}
+    plugins,
+  };
+};
 ```
 
 ## You make face issues in setting up routing refer to this link for router v6 , Also refer App.tsx for routing
